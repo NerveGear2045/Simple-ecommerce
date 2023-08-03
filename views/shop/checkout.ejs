@@ -1,0 +1,25 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <ul class="cart__item-list">
+            <% products.forEach(p => { %>
+                <li class="cart__item">
+                    <h1><%= p.productId.title %></h1>
+                    <h2>Quantity: <%= p.quantity %></h2>
+                    <!-- <form action="/checkout" method="post">
+                        <input type="hidden" value="<%= p.productId._id%>" name="productId">
+                        <input type="hidden" name="_csrf" value="csrfToken">
+                        <button class="" type="submit" >Pay</button>
+                    </form> -->
+                </li>
+            <% }) %>
+        </ul>
+        <div class="centered">
+            <h2 id="total">Total: <%= totalPrice %> $</h2>
+        </div>
+    </main>
+    <%- include('../includes/end.ejs') %>
