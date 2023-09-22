@@ -155,7 +155,7 @@ exports.postSignup = (req, res, next) => {
         to: email,
         from: 'shop@node-complete.com',
         subject: 'Signup succeeded!',
-        html: '<h1 style="color:green;">You successfully signed up!</h1>'
+        html: '<h1 style="color:green;">You successfully signed up!</h1>',
       });
     })
     .catch(err => {
@@ -211,7 +211,7 @@ exports.postReset = (req, res, next) => {
           subject: 'Password reset',
           html: `
             <p>You requested a password reset</p>
-            <p>Click this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.</p>
+            <p>Click this <a href="${process.env.link}/reset/${token}">link</a> to set a new password.</p>
           `,
         });
       })
